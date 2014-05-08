@@ -25,7 +25,7 @@ VERSION="1.0";
 #       * Ucomment directories you wish to migrate
 #       * Comment directories you do not wish to migrate
 #       * Add additional directories you wish to migrate that are not listed using the same format
-BDIRS="${BDIRS} /etc/Bastille";
+BDIRS="${BDIRS} /etc/Bastille/firewall.d";
 #BDIRS="${BDIRS} /etc/bind";
 BDIRS="${BDIRS} /etc/cron.d";
 #BDIRS="${BDIRS} /etc/dovecot";
