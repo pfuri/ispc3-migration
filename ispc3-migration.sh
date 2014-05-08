@@ -78,7 +78,7 @@ function getBackupLocation {
                 fi;
 
                 # Create the directory
-                printf "Creating backup location...\n ";
+                printf "Creating backup location...\n";
                 mkdir -p "${MDIR}";
                 if [ -d "${MDIR}" ]; then
                         MESSAGE="Successfully created backup directory: ${MDIR}\n";
@@ -141,7 +141,7 @@ function backupMySQL {
         # Backup and compress all MySQL databases
         printf "Backing up all databases...\n";
         DUMPFILE="${MDIR}/mysqldump-all-databases-${MTIME}.sql";
-        mysqldump -u "${DBUSER}" -p"${DBPASS}" --all-databases > "${DUMPFILE}" 2>&1;
+        mysqldump -h "localhost" -u "${DBUSER}" -p"${DBPASS}" -c --add-drop-table --add-locks --quick --lock-tables --all-databases > "${DUMPFILE}" 2>&1;
         if [ "$?" -eq 0 ]; then
                 printf "Successfully created ${DUMPFILE}\n";
         else
