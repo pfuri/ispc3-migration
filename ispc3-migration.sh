@@ -10,13 +10,13 @@
 AUTHOR="Unfaiir";
 BDIRS="";
 COPYRIGHT="Copyright 2014, Unfaiir Advantage";
-DBNAME="";
+DBNAME="mysqld";
 DBPASS="";
-DBUSER="";
+DBUSER="root";
 DESCRIPTION1="This script is part of a collection of scripts to assist in migrating an existing ISPConfig 3 installation to a new server.";
 DESCRIPTION2="Particularly, this script handles the backup of the old server and prepares it for the transfer.";
 LICENSE="GPL v3";
-MDIR="";
+MDIR="/tmp/ispcm";
 MTIME=`date +"%Y%m%d%H%I%S"`;
 TITLE="ISPConfig Migration - Backup Protocol";
 VERSION="1.0";
@@ -25,7 +25,7 @@ VERSION="1.0";
 #       * Ucomment directories you wish to migrate
 #       * Comment directories you do not wish to migrate
 #       * Add additional directories you wish to migrate that are not listed using the same format
-BDIRS="${BDIRS} /etc/Bastille/firewall.d";
+BDIRS="${BDIRS} /etc/Bastille";
 #BDIRS="${BDIRS} /etc/bind";
 BDIRS="${BDIRS} /etc/cron.d";
 #BDIRS="${BDIRS} /etc/dovecot";
@@ -54,8 +54,6 @@ BDIRS="${BDIRS} /var/www";
 #*************************************
 # END CONFIG - DO NOT EDIT PAST HERE *
 #*************************************
-
-
 
 # get the backup location and make sure it exists and is writable
 function getBackupLocation {
@@ -175,7 +173,7 @@ function backupMySQL {
 function backupDirs {
         printf "Backing up directories...\n";
         TARFILE="${MDIR}/filedump-${MTIME}.tar.gz";
-        tar -zcvpf "${TARFILE}" --ignore-failed-read "${BDIRS}" 2>&1;
+        tar -zcvpf "${TARFILE}" --ignore-failed-read `echo "${BDIRS}"` 2>&1;
         if [ "$?" -eq 0 ]; then
                 printf "Backup directories successfully compressed: ${TARFILE}\n";
         else
