@@ -2,14 +2,14 @@
 # Title: ISPConfig Migration - Backup Protocol
 # Description: This script is part of a collection of scripts to assist in migrating an existing ISPConfig 3 installation to a new server. Particularly, this script handles the backup of the old server and prepares it for the transfer.
 # Author: Unfaiir
-# Copyright 2014, Unfaiir Advantage
+# Copyright 2014, Paul Furiani
 # Version: 1.0
 # License: GPL v3
 
 # Defaults
-AUTHOR="Unfaiir";
+AUTHOR="Paul Furiani";
 BDIRS="";
-COPYRIGHT="Copyright 2014, Unfaiir Advantage";
+COPYRIGHT="Copyright 2014, Paul Furiani";
 DBNAME="mysqld";
 DBPASS="";
 DBUSER="root";
